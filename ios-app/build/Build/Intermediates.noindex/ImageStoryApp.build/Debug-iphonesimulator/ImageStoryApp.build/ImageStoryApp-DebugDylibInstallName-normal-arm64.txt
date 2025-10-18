@@ -1,0 +1,1 @@
+@rpath/ImageStoryApp.debug.dylib

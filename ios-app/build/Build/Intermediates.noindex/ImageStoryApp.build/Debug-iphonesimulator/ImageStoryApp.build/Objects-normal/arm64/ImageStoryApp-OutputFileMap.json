@@ -1,0 +1,49 @@
+{
+  "" : {
+    "diagnostics" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryApp-primary.dia",
+    "emit-module-dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryApp-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryApp-primary-emit-module.dia",
+    "pch" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryApp-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryApp-primary.swiftdeps"
+  },
+  "/Users/turkischleopard/image-story-app/ios-app/ImageStoryApp/ImageStoryApp/ContentView.swift" : {
+    "const-values" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.swiftconstvalues",
+    "dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.d",
+    "diagnostics" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.dia",
+    "index-unit-output-path" : "/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.o",
+    "llvm-bc" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.bc",
+    "object" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.o",
+    "swift-dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView.swiftdeps",
+    "swiftmodule" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ContentView~partial.swiftmodule"
+  },
+  "/Users/turkischleopard/image-story-app/ios-app/ImageStoryApp/ImageStoryApp/ImageStoryAppApp.swift" : {
+    "const-values" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.swiftconstvalues",
+    "dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.d",
+    "diagnostics" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.dia",
+    "index-unit-output-path" : "/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.o",
+    "llvm-bc" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.bc",
+    "object" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.o",
+    "swift-dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp.swiftdeps",
+    "swiftmodule" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/ImageStoryAppApp~partial.swiftmodule"
+  },
+  "/Users/turkischleopard/image-story-app/ios-app/ImageStoryApp/ImageStoryApp/WebView.swift" : {
+    "const-values" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.swiftconstvalues",
+    "dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.d",
+    "diagnostics" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.dia",
+    "index-unit-output-path" : "/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.o",
+    "llvm-bc" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.bc",
+    "object" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.o",
+    "swift-dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView.swiftdeps",
+    "swiftmodule" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/WebView~partial.swiftmodule"
+  },
+  "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/DerivedSources/GeneratedAssetSymbols.swift" : {
+    "const-values" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftconstvalues",
+    "dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.d",
+    "diagnostics" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.dia",
+    "index-unit-output-path" : "/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "llvm-bc" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.bc",
+    "object" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.o",
+    "swift-dependencies" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols.swiftdeps",
+    "swiftmodule" : "/Users/turkischleopard/image-story-app/ios-app/build/Build/Intermediates.noindex/ImageStoryApp.build/Debug-iphonesimulator/ImageStoryApp.build/Objects-normal/arm64/GeneratedAssetSymbols~partial.swiftmodule"
+  }
+}
