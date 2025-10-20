@@ -1,5 +1,6 @@
 "use client";
 
+import { SessionProvider } from "next-auth/react";
 import { usePathname } from "next/navigation";
 import { Nav } from "@/components/nav";
 import ProtectedRoute from "@/components/protected-route";
@@ -16,17 +17,19 @@ export function LayoutWrapper({ children }: LayoutWrapperProps) {
   const isPublicRoute = publicRoutes.includes(pathname);
 
   return (
-    <ProtectedRoute>
-      {isPublicRoute ? (
-        // Public layout - no sidebar
-        <>{children}</>
-      ) : (
-        // Protected layout - with sidebar
-        <div className="flex">
-          <Nav />
-          <main className="flex-1 md:ml-64 p-4 md:p-8 pt-16 md:pt-8">{children}</main>
-        </div>
-      )}
-    </ProtectedRoute>
+    <SessionProvider>
+      <ProtectedRoute>
+        {isPublicRoute ? (
+          // Public layout - no sidebar
+          <>{children}</>
+        ) : (
+          // Protected layout - with sidebar
+          <div className="flex">
+            <Nav />
+            <main className="flex-1 md:ml-64 p-4 md:p-8 pt-16 md:pt-8">{children}</main>
+          </div>
+        )}
+      </ProtectedRoute>
+    </SessionProvider>
   );
 }

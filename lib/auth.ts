@@ -1,7 +1,4 @@
-import { AuthSession } from "@/types";
-
-const SESSION_KEY = "auth_session";
-const SESSION_DURATION = 7 * 24 * 60 * 60 * 1000; // 7 days
+import { signIn as nextAuthSignIn, signOut as nextAuthSignOut } from "next-auth/react";
 
 // Sign up
 export const signUp = async (email: string, password: string, name: string): Promise<{ success: boolean; error?: string }> => {
@@ -20,11 +17,20 @@ export const signUp = async (email: string, password: string, name: string): Pro
       return { success: false, error: data.error || "Failed to create account" };
     }
 
-    // Auto login after signup
-    createSession(data.user);
+    // Auto login after signup using NextAuth
+    const result = await nextAuthSignIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
+
+    if (result?.error) {
+      return { success: false, error: result.error };
+    }
 
     return { success: true };
   } catch (error) {
+    console.error("Signup error:", error instanceof Error ? error.message : "Unknown error");
     return { success: false, error: "Failed to create account" };
   }
 };
@@ -32,72 +38,28 @@ export const signUp = async (email: string, password: string, name: string): Pro
 // Login
 export const login = async (email: string, password: string): Promise<{ success: boolean; error?: string }> => {
   try {
-    const response = await fetch("/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
+    const result = await nextAuthSignIn("credentials", {
+      email,
+      password,
+      redirect: false,
     });
 
-    const data = await response.json();
-
-    if (!response.ok) {
-      return { success: false, error: data.error || "Failed to login" };
+    if (result?.error) {
+      return { success: false, error: "Invalid email or password" };
     }
 
-    createSession(data.user);
+    if (!result?.ok) {
+      return { success: false, error: "Failed to login" };
+    }
 
     return { success: true };
   } catch (error) {
+    console.error("Login error:", error instanceof Error ? error.message : "Unknown error");
     return { success: false, error: "Failed to login" };
   }
 };
 
-// Create session
-const createSession = (user: { id: string; email: string; name: string }): void => {
-  const session: AuthSession = {
-    user: {
-      id: user.id,
-      email: user.email,
-      name: user.name,
-    },
-    expiresAt: new Date(Date.now() + SESSION_DURATION).toISOString(),
-  };
-
-  localStorage.setItem(SESSION_KEY, JSON.stringify(session));
-};
-
-// Get current session
-export const getSession = (): AuthSession | null => {
-  if (typeof window === "undefined") return null;
-
-  const stored = localStorage.getItem(SESSION_KEY);
-  if (!stored) return null;
-
-  const session: AuthSession = JSON.parse(stored);
-
-  // Check if session expired
-  if (new Date(session.expiresAt) < new Date()) {
-    logout();
-    return null;
-  }
-
-  return session;
-};
-
 // Logout
-export const logout = (): void => {
-  localStorage.removeItem(SESSION_KEY);
-};
-
-// Check if user is authenticated
-export const isAuthenticated = (): boolean => {
-  return getSession() !== null;
-};
-
-// Get current user
-export const getCurrentUser = () => {
-  const session = getSession();
-  return session?.user || null;
+export const logout = async (): Promise<void> => {
+  await nextAuthSignOut({ redirect: false });
 };

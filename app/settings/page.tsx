@@ -1,27 +1,20 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Lock } from "lucide-react";
-import { getCurrentUser } from "@/lib/auth";
 
 export default function Settings() {
+  const { data: session } = useSession();
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isChanging, setIsChanging] = useState(false);
   const [message, setMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
-  const [userEmail, setUserEmail] = useState("");
-
-  useEffect(() => {
-    const user = getCurrentUser();
-    if (user) {
-      setUserEmail(user.email);
-    }
-  }, []);
 
   const handleChangePassword = async () => {
     setMessage(null);
@@ -48,7 +41,7 @@ export default function Settings() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: userEmail,
+          email: session?.user?.email,
           currentPassword,
           newPassword,
         }),

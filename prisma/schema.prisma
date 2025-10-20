@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,15 +8,101 @@ datasource db {
   directUrl = env("DIRECT_URL")
 }
 
+model Conversation {
+  id        String    @id
+  title     String
+  userId    String?
+  projectId String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime
+  Project   Project?  @relation(fields: [projectId], references: [id])
+  User      User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Message   Message[]
+
+  @@index([projectId])
+  @@index([userId])
+}
+
+model File {
+  id            String    @id
+  filename      String
+  originalName  String
+  mimeType      String
+  size          Int
+  url           String
+  userId        String?
+  processed     Boolean   @default(false)
+  processedData Json?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime
+  User          User?     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Message       Message[]
+
+  @@index([userId])
+}
+
+model Message {
+  id             String       @id
+  conversationId String
+  role           String
+  content        String
+  reasoning      String?
+  imageUrl       String?
+  searchResults  Json?
+  fileId         String?
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime
+  Conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  File           File?        @relation(fields: [fileId], references: [id])
+
+  @@index([conversationId])
+  @@index([fileId])
+}
+
+model Project {
+  id           String         @id
+  name         String
+  description  String?
+  userId       String?
+  settings     Json?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime
+  Conversation Conversation[]
+  User         User?          @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Settings {
+  id                   String   @id
+  userId               String?  @unique
+  systemPrompt         String?
+  temperature          Float    @default(1.0)
+  maxTokens            Int      @default(32768)
+  theme                String   @default("dark")
+  language             String   @default("en")
+  enableWebSearch      Boolean  @default(true)
+  enableImageGen       Boolean  @default(true)
+  enableVisionAI       Boolean  @default(true)
+  enableReasoning      Boolean  @default(true)
+  soundEnabled         Boolean  @default(true)
+  notificationsEnabled Boolean  @default(true)
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime
+}
+
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  name         String   @default("User")
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String         @default("User")
   password     String
   avatar       String?
   openaiApiKey String?
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @default(now()) @updatedAt
+  Conversation Conversation[]
+  File         File[]
+  Project      Project[]
 
   @@map("users")
 }

@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -13,9 +14,9 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { logout, getCurrentUser } from "@/lib/auth";
+import { logout } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const navItems = [
   {
@@ -48,13 +49,8 @@ const navItems = [
 export function Nav() {
   const pathname = usePathname();
   const router = useRouter();
-  const [user, setUser] = useState<{ name: string; email: string } | null>(null);
+  const { data: session } = useSession();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const currentUser = getCurrentUser();
-    setUser(currentUser);
-  }, []);
 
   // Hide nav on public pages
   const publicRoutes = ["/", "/login", "/signup"];
@@ -62,8 +58,8 @@ export function Nav() {
     return null;
   }
 
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     router.push("/");
   };
 
@@ -109,9 +105,9 @@ export function Nav() {
           <p className="text-sm text-muted-foreground mt-1">
             Real-time Story Generation
           </p>
-          {user && (
+          {session?.user && (
             <p className="text-xs text-muted-foreground mt-2 truncate">
-              {user.name}
+              {session.user.name}
             </p>
           )}
         </div>
